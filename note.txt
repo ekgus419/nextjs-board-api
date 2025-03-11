@@ -1,0 +1,85 @@
+1. npm install -g @nestjs/cli
+-> 모듈기반으로 만들어짐
+-> 명령어 입력할 수 있게 사용
+
+2. nest 프로젝트 생성
+nest new board-back-nest
+
+# npx로 nest CLI 명령어 실행
+npx @nestjs/cli new board-back-nest
+
+-> nest 프로젝트 생성
+-> NestJS 애플리케이션에 새로운 모듈, 컨트롤러, 서비스 등을 생성
+
+3. 플러그인 설치
+org.springframework.boot:spring-boot-starter-validation
+-> class-validator , class-transformer
+
+org.springframework.boot:spring-boot-starter-data-jpa
+-> 자바 기반의 orm 
+-> typeorf @nestjs/typeorm
+
+org.springframework.boot:spring-boot-starter-security
+-> passport, passport-jwt, bcrypt, @nestjs/passport
+
+com.mysql:mysql-connector-j
+-> mysql2
+
+io.jsonwebtoken', name: jjwt-api ... 
+-> @nestjs/jwt
+
+@types/passport-jwt @types/bcrypt
+
+application.properties 
+환경변수 -> @nestjs/config , dotenv
+
+npm i class-validator class-transformer
+npm i typeorm @nestjs/typeorm
+npm i passport passport-jwt bcrypt @nestjs/passport
+npm i mysql2
+npm i @nestjs/jwt
+npm i @nestjs/config
+npm i dot env
+npm i -D @types/passport-jwt @types/bcrypt
+
+4. 모듈 생성 (기능단위로)
+auth
+board
+user
+file
+search
+
+data-access (기능 단위로 사용위해)
+
+(1) 직접 -> 폴더, 모듈 클래스, 컨트롤러 클래스, 서비스 클래스, 엔티티 등을 직접 생성
+(2) nest cli -> nesg g (generate) 생성할것 이름 옵션
+
+nest g mo(module)  auth
+nest g co(controller)  auth
+nest g s (service) auth
+nest g res(resource) board --no-spec
+nest g pr(provider)
+
+
+nest g mo auth
+nest g co auth
+nest g s auth --no-spec
+
+nest g res board --no-spec
+nest g res user --no-spec
+nest g res file --no-spec
+nest g res search --no-spec
+nest g module data-access --no-spec
+
+nest g pr data-access/repository/user.repository --no-spec
+
+5. 인증
+bearer token -> 인증 jwt
+jwt
+cors
+
+6. 추가 패키지 설치
+npm i multer uuid
+npm i -D @types/multer
+npm i @nestjs/serve-static @nestjs/platform-express
+npm i dayjs
